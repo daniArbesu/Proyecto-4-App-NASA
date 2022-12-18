@@ -6,7 +6,7 @@ const today = new Date(Date.now()).toISOString().slice(0, 10);
 // min Date for the date picker (got from the NASA page)
 const minDate = new Date('2015-01-01').toISOString().slice(0, 10);
 
-function ImageCard({ copyright, url, title, explanation, date, setDate }) {
+function ImageCard({ copyright = '', url, title, explanation, date, setDate }) {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
@@ -117,16 +117,13 @@ function ImageCard({ copyright, url, title, explanation, date, setDate }) {
 }
 
 ImageCard.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   copyright: PropTypes.string,
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   explanation: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   setDate: PropTypes.func.isRequired
-};
-
-ImageCard.defaultProps = {
-  copyright: ''
 };
 
 export default ImageCard;
