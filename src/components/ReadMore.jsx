@@ -1,11 +1,9 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable no-console */
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const maxLength = 100;
 
-// eslint-disable-next-line react/prop-types
-const ReadMore = ({ children }) => {
+function ReadMore({ children }) {
   const text = children;
   const [isReadMore, setIsReadMore] = useState(true);
 
@@ -21,6 +19,10 @@ const ReadMore = ({ children }) => {
       </button>
     </p>
   );
+}
+
+ReadMore.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default ReadMore;

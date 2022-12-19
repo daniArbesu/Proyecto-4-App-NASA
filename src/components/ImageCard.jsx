@@ -1,6 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable no-console */
-
+import PropTypes from 'prop-types';
 import ReadMore from './ReadMore';
 
 // Recuperamos la fecha actual en un formato ISO -> 2023-01-01
@@ -8,18 +6,14 @@ const today = new Date(Date.now()).toISOString().slice(0, 10);
 // min Date for the date picker (got from the NASA page)
 const minDate = new Date('2015-01-01').toISOString().slice(0, 10);
 
-// eslint-disable-next-line react/prop-types
-const ImageCard = ({ copyright, url, title, explanation, date, setDate }) => {
+function ImageCard({ copyright, url, title, explanation, date, setDate }) {
   const handleShare = () => {
     if (navigator.share) {
-      navigator
-        .share({
-          title: 'Arbesú Nasa Picture of the Day',
-          text: 'Check out this amazing page from Dani Arbesú',
-          url: 'https://dani-arbesu-nasa.netlify.app/'
-        })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing', error));
+      navigator.share({
+        title: 'Arbesú Nasa Picture of the Day',
+        text: 'Check out this amazing page from Dani Arbesú',
+        url: 'https://dani-arbesu-nasa.netlify.app/'
+      });
     }
   };
 
@@ -120,6 +114,19 @@ const ImageCard = ({ copyright, url, title, explanation, date, setDate }) => {
       </div>
     </section>
   );
+}
+
+ImageCard.propTypes = {
+  copyright: PropTypes.string,
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  explanation: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  setDate: PropTypes.func.isRequired
+};
+
+ImageCard.defaultProps = {
+  copyright: ''
 };
 
 export default ImageCard;
