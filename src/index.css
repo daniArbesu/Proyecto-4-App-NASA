@@ -16,6 +16,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -27,16 +33,23 @@ a:hover {
 
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   place-items: center;
   min-height: 100vh;
-  max-width: 800px;
-  padding: 1rem 2rem;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 450px;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.9rem;
   line-height: 1.1;
 }
 
@@ -51,10 +64,88 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background: var(--da-primary-color-light);
+  color: var(--da-primary-color-dark);
+  box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  gap: 4px;
+}
+
+.card-header--logo {
+  width: 80px;
+}
+
+.card-header--meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+
+  /* width: 368px;
+  height: 42px; */
+}
+
+.card-header--selectors {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-header--selectors > h2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: -0.02em;
+}
+
+.card-header--selector-picker {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.card-header--date-picker {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-header--meta > p {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card-actions {
+  padding: 0.5rem 0.5rem;
+}
+
+.card-actions > button {
+  background-color: inherit;
 }
