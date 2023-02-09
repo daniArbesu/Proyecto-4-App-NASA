@@ -4,6 +4,8 @@ import { getRoverPhotos } from './api/nasa';
 import './App.css';
 // import ImageDisplay from './components/Image';
 
+const minDate = new Date('2015-01-01').toISOString().slice(0, 10);
+
 function App() {
   // Recuperamos la fecha actual en un formato ISO -> 2023-01-01
   // TODO: Fix problem when the day changes and there are no pics
@@ -59,7 +61,14 @@ function App() {
                 </div>
                 <div className="card-header--date-picker">
                   <p>Pick a Date</p>
-                  <input type="date" onChange={handleInput} value={date} name="date" max={today} />
+                  <input
+                    type="date"
+                    onChange={handleInput}
+                    value={date}
+                    name="date"
+                    max={today}
+                    min={minDate}
+                  />
                 </div>
               </div>
             </div>
