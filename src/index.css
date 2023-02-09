@@ -165,3 +165,21 @@ button:focus-visible {
   background-color: inherit;
   padding: 0;
 }
+
+.card-description--wrapper {
+  padding: 1rem;
+  padding-top: 0;
+  font-size: 0.8rem;
+  text-align: left;
+  line-height: 1.5rem;
+}
+
+.card-description--wrapper > span {
+  font-weight: 700;
+}
+
+.read-or-hide {
+  background-color: inherit;
+  color: #c0c0c0;
+  padding: 0;
+}
