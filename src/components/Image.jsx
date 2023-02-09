@@ -122,12 +122,6 @@ const ImageDisplay = ({ copyright, url, title, explanation, date, setDate }) => 
         <span>{title}</span>
         <ReadMore>{explanation}</ReadMore>
       </div>
-      {/*       <div className="card-description--wrapper">
-        <p className="card-description">
-          <span>{title} - </span>
-          {explanation}
-        </p>
-      </div> */}
     </section>
   );
 };

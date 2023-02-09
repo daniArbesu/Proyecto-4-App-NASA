@@ -1,6 +1,8 @@
 :root {
   --da-primary-color-light: #ffffff;
   --da-primary-color-dark: #213547;
+  --da-read-more-color: #c0c0c0;
+  --da-shadow-color: rgba(0, 0, 0, 0.16);
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -20,15 +22,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #747bff;
 }
 
 body {
@@ -78,11 +71,12 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
   width: 100%;
 
   background: var(--da-primary-color-light);
   color: var(--da-primary-color-dark);
-  box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 40px var(--da-shadow-color);
   border-radius: 10px;
 }
 
@@ -104,9 +98,6 @@ button:focus-visible {
   align-items: flex-start;
   padding: 0px;
   gap: 4px;
-
-  /* width: 368px;
-  height: 42px; */
 }
 
 .card-header--selectors {
@@ -124,13 +115,11 @@ button:focus-visible {
 .card-header--selector-picker {
   display: flex;
   flex-direction: column;
-  text-align: left;
   gap: 0.5rem;
 }
 
 .card-header--date-picker {
   display: flex;
-  text-align: left;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -170,7 +159,6 @@ button:focus-visible {
   padding: 1rem;
   padding-top: 0;
   font-size: 0.8rem;
-  text-align: left;
   line-height: 1.5rem;
 }
 
@@ -180,6 +168,6 @@ button:focus-visible {
 
 .read-or-hide {
   background-color: inherit;
-  color: #c0c0c0;
+  color: var(--da-read-more-color);
   padding: 0;
 }
