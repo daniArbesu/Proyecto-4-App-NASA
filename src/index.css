@@ -129,11 +129,18 @@ button:focus-visible {
 }
 
 .card-header--date-picker {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   display: flex;
   text-align: left;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.card-header--date-picker > p {
+  font-size: 0.9rem;
+}
+
+.card-header--date-picker > input {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .card-header--selector-picker > p {
