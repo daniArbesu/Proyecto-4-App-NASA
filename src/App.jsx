@@ -32,7 +32,7 @@ function App() {
       navigator
         .share({
           title: 'Arbesú Nasa Picture of the Day',
-          text: 'Check out this amazing page',
+          text: 'Check out this amazing page from Dani Arbesú',
           url: 'https://dani-arbesu-nasa.netlify.app/'
         })
         .then(() => console.log('Successful share'))
