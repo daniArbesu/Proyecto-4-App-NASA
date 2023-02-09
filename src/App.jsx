@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import { getRoverPhotos } from './api/rovers';
 import './App.css';
@@ -5,13 +6,19 @@ import './App.css';
 
 function App() {
   // Recuperamos la fecha actual en un formato ISO -> 2023-01-01
+  // TODO: Fix problem when the day changes and there are no pics
   const today = new Date(Date.now()).toISOString().slice(0, 10);
-  const [date, setDate] = useState(today);
+  const yesterday = new Date('2023-02-08').toISOString().slice(0, 10);
+  console.log(yesterday);
+
+  const [date, setDate] = useState(yesterday);
   const [photo, setPhoto] = useState(null);
 
   // we get the pictures everytime the date changes
   useEffect(() => {
-    getRoverPhotos(date).then((data) => setPhoto(data));
+    getRoverPhotos(date)
+      .then((data) => setPhoto(data))
+      .catch((err) => console.log(err));
   }, [date]);
 
   // Crearemos una función que setee la fecha a través de un input en el formato
