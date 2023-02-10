@@ -1,15 +1,36 @@
 :root {
-  --da-primary-color-light: #ffffff;
-  --da-primary-color-dark: #213547;
-  --da-read-more-color: #c0c0c0;
-  --da-shadow-color: rgba(0, 0, 0, 0.16);
+  /* COLOR PALETTE */
+  --da-color-primary-light: #ffffff;
+  --da-color-primary-dark: #213547;
+  --da-color-read-more: #c0c0c0;
+  --da-color-shadow: rgba(0, 0, 0, 0.16);
 
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  /* FONT SIZE */
+  --da-typography-h1: 1.9375rem;
+  --da-typography-h2: 1.25rem;
+  --da-typography-typeface: 'Inter', sans-serif;
+
+  /* LEADING */
+  --da-typography-h1-leading: 1.2;
+  --da-typography-h2-leading: 1.2;
+  --da-typography-p-leading: 1.5;
+
+  /* MARGIN */
+  --da-typography-margin-heading: 2rem;
+
+  /* GAP */
+  --da-gap-header: 1rem;
+
+  /* BORDER RADIUS */
+  --da-radius-button: 0.5rem;
+  --da-radius-card: 0.5rem;
+
+  font-family: var(--da-typography-typeface);
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: var(--da-primary-color-light);
-  background-color: var(--da-primary-color-dark);
+  color: var(--da-color-primary-light);
+  background-color: var(--da-color-primary-dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,30 +55,28 @@ body {
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
   max-width: 400px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  line-height: 1.1;
+  font-size: var(--da-typography-h1);
+  line-height: var(--da-typography-h1-leading);
+  margin-bottom: var(--da-typography-margin-heading);
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: var(--da-typography-h2);
+  line-height: var(--da-typography-h2-leading);
 }
 
 button {
-  border-radius: 8px;
+  border-radius: var(--da-radius-button);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #f9f9f9;
+  background-color: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -72,20 +91,19 @@ button:focus-visible {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  width: 100%;
 
-  background: var(--da-primary-color-light);
-  color: var(--da-primary-color-dark);
-  box-shadow: 0px 6px 40px var(--da-shadow-color);
-  border-radius: 10px;
+  background: var(--da-color-primary-light);
+  color: var(--da-color-primary-dark);
+  box-shadow: 0px 6px 40px var(--da-color-shadow);
+  border-radius: var(--da-radius-card);
 }
 
 .card-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 8px;
-  gap: 4px;
+  padding: 0.8rem;
+  gap: var(--da-gap-header);
 }
 
 .card-header--logo {
@@ -97,7 +115,6 @@ button:focus-visible {
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-  gap: 4px;
 }
 
 .card-header--selectors {
@@ -129,7 +146,7 @@ button:focus-visible {
 }
 
 .card-header--date-picker > input {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: inherit;
 }
 
 .card-header--selector-picker > p {
@@ -146,17 +163,22 @@ button:focus-visible {
 .card-actions {
   display: flex;
   align-items: center;
-  padding: 0.8rem 0.8rem;
+  padding: 0.8rem;
   gap: 1.4rem;
+}
+
+.card-actions > a {
+  display: flex;
 }
 
 .card-actions > button {
   background-color: inherit;
+  display: flex;
   padding: 0;
 }
 
 .card-description--wrapper {
-  padding: 1rem;
+  padding: 0.8rem;
   padding-top: 0;
   font-size: 0.8rem;
   line-height: 1.5rem;
@@ -167,7 +189,6 @@ button:focus-visible {
 }
 
 .read-or-hide {
-  background-color: inherit;
-  color: var(--da-read-more-color);
+  color: var(--da-color-read-more);
   padding: 0;
 }

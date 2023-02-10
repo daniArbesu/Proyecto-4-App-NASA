@@ -9,7 +9,7 @@ const today = new Date(Date.now()).toISOString().slice(0, 10);
 const minDate = new Date('2015-01-01').toISOString().slice(0, 10);
 
 // eslint-disable-next-line react/prop-types
-const ImageDisplay = ({ copyright, url, title, explanation, date, setDate }) => {
+const ImageCard = ({ copyright, url, title, explanation, date, setDate }) => {
   const handleShare = () => {
     if (navigator.share) {
       navigator
@@ -126,4 +126,4 @@ const ImageDisplay = ({ copyright, url, title, explanation, date, setDate }) => 
   );
 };
 
-export default ImageDisplay;
+export default ImageCard;

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import { getRoverPhotos } from './api/nasa';
-import ImageDisplay from './components/Image';
+import ImageCard from './components/ImageCard';
 import './App.css';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <h1>Picture of the Day</h1>
       {photo ? (
-        <ImageDisplay
+        <ImageCard
           copyright={photo.copyright}
           title={photo.title}
           explanation={photo.explanation}
