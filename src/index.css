@@ -55,7 +55,7 @@ body {
 }
 
 .App {
-  max-width: 400px;
+  max-width: 100vw;
 }
 
 h1 {
@@ -186,4 +186,10 @@ button {
 .read-or-hide {
   color: var(--da-color-read-more);
   padding: 0;
+}
+
+@media screen and (min-width: 500px) {
+  .App {
+    max-width: 400px;
+  }
 }

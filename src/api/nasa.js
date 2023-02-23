@@ -27,7 +27,6 @@ export const getRoverPhotos = async (date) => {
 
     return response.data;
   } catch (error) {
-    console.error(error);
-    return null;
+    throw new Error('There was an error fetching the API');
   }
 };

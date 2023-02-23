@@ -1,21 +1,34 @@
-/* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import { getRoverPhotos } from './api/nasa';
 import ImageCard from './components/ImageCard';
 import './App.css';
 
-function App() {
-  const yesterday = new Date('2023-02-08').toISOString().slice(0, 10);
+const offsetUSATime = -8; // to avoid problems with european timezone
 
-  // We set the start date to yesterday to avoid the case that there are no pics yet today
-  const [date, setDate] = useState(yesterday);
+const errorData = {
+  copyright: 'Error retrieving Data try another Date',
+  title: 'Error',
+  explanation:
+    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora quod et beatae sequi quaerat nemo unde ut modi incidunt, non possimus quisquam obcaecati, ad debitis accusamus quas, neque dolorum adipisci.',
+  url: ''
+};
+
+function App() {
+  const todayUSA = new Date(new Date().getTime() + offsetUSATime * 3600 * 1000)
+    .toISOString()
+    .slice(0, 10);
+
+  const [date, setDate] = useState(todayUSA);
   const [photo, setPhoto] = useState(null);
 
   // we get the pictures everytime the date changes
   useEffect(() => {
     getRoverPhotos(date)
       .then((data) => setPhoto(data))
-      .catch((err) => console.error(err));
+      .catch(() => {
+        setPhoto(errorData);
+        throw new Error('There was an error retrieving the pic');
+      });
   }, [date]);
 
   return (
@@ -30,7 +43,9 @@ function App() {
           setDate={setDate}
           url={photo.url}
         />
-      ) : null}
+      ) : (
+        <h2>Loading Data</h2>
+      )}
     </div>
   );
 }
