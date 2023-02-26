@@ -26,7 +26,7 @@ const ImageCard = ({ copyright, url, title, explanation, date, setDate }) => {
   return (
     <section className="card-wrapper">
       <header className="card-header">
-        <img src="../../public/NASA_logo.png" alt="" className="card-header--logo" />
+        <img src="../../NASA_logo.png" alt="" className="card-header--logo" />
         <div className="card-header--meta">
           <div className="card-header--selectors">
             <div className="card-header--selector-picker">
